@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jai Kansal — Engineer & Co-Founder</title>
+  <meta name="description"
+    content="Portfolio of Jai Kansal — Co-Founder, Full-Stack Engineer, and Cloud Architect building AI-powered products from Delhi, India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaikansalportfolio.netlify.app/">
+  <meta property="og:title" content="Jai Kansal — Engineer & Co-Founder">
+  <meta property="og:description" content="Co-Founder, Full-Stack Engineer, and Cloud Architect building AI-powered products. Check out my interactive portfolio and terminal.">
+  <meta property="og:image" content="https://jaikansalportfolio.netlify.app/preview.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://jaikansalportfolio.netlify.app/">
+  <meta property="twitter:title" content="Jai Kansal — Engineer & Co-Founder">
+  <meta property="twitter:description" content="Co-Founder, Full-Stack Engineer, and Cloud Architect building AI-powered products.">
+  <meta property="twitter:image" content="https://jaikansalportfolio.netlify.app/preview.png">
+
+  <!-- ════════════════════════  ANALYTICS (GA4)  ════════════════════════ -->
+  <!-- 1. Replace 'G-XXXXXXXXXX' with your Google Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- ════════════════════════  MICROSOFT CLARITY  ════════════════════════ -->
+  <!-- 2. Replace 'YOUR_CLARITY_ID' with your Clarity Project ID -->
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wjoih6ig68");
+  </script>
+</head>
+
+<body>
+
+  <!-- ════════════════════════  PRELOADER  ════════════════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">&lt;JK/&gt;</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+      <div class="preloader-logs" id="preloader-logs">
+        <div class="p-log">INITIALIZING_CORE_SYSTEMS...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════  PROGRESS BAR  ════════════════════════ -->
+  <div class="scroll-progress-wrap">
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </div>
+
+  <div class="spotlight"></div>
+
+  <!-- ════════════════════════  CANVAS  ════════════════════════ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ════════════════════════  CURSOR  ════════════════════════ -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- ════════════════════════  NAV  ════════════════════════ -->
+  <nav class="nav" id="main-nav">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>JK<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link magnetic">About</a></li>
+      <li><a href="#experience" class="nav-link magnetic">Experience</a></li>
+      <li><a href="#projects" class="nav-link magnetic">Projects</a></li>
+      <li><a href="#skills" class="nav-link magnetic">Skills</a></li>
+      <li><a href="#achievements" class="nav-link magnetic">Achievements</a></li>
+      <li><a href="#contact" class="nav-link magnetic">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-terminal-toggle magnetic" id="nav-terminal-btn" title="Open Terminal (`) ">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="4 17 10 11 4 5" />
+          <line x1="12" y1="19" x2="20" y2="19" />
+        </svg>
+      </button>
+      <a href="Jai_Kansal_Resume.pdf" download class="btn-resume magnetic" id="resume-btn">Resume ↓</a>
+    </div>
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#achievements" class="mobile-link">Achievements</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li style="margin-top: 1rem;">
+        <a href="Jai_Kansal_Resume.pdf" download class="mobile-link" style="color: var(--accent); border: 1px solid var(--accent); padding: 0.8rem; border-radius: 8px; display: block; text-align: center;">Download Resume ↓</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ════════════════════════  HERO  ════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-tag" id="hero-tag">
+        <span class="tag-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line-wrap"><span class="line-inner" id="h-line1">Hi, I'm Jai</span></span>
+        <span class="line-wrap"><span class="line-inner" id="h-line2">Kansal.</span></span>
+      </h1>
+      <p class="hero-subtitle" id="h-sub">
+        Co-Founder · Full-Stack Engineer · Cloud Architect
+      </p>
+      <p class="hero-desc" id="h-desc">
+        I build scalable, AI-integrated MVPs for founders. From Next.js frontends<br />
+        to secure Google Cloud infrastructure, I ship production-ready products fast.
+      </p>
+      <div class="hero-cta" id="h-cta">
+        <a href="#experience" class="btn-primary magnetic" id="see-work-btn">See My Work</a>
+        <a href="#contact" class="btn-ghost magnetic" id="say-hello-btn">Say Hello →</a>
+      </div>
+      <div class="hero-scroll" id="h-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+    <!-- Floating tech pills -->
+    <div class="tech-orbs">
+      <div class="orb orb-1">Next.js</div>
+      <div class="orb orb-2">GCP</div>
+      <div class="orb orb-3">Docker</div>
+      <div class="orb orb-4">Terraform</div>
+      <div class="orb orb-5">Firebase</div>
+      <div class="orb orb-6">Vertex AI</div>
+      <div class="orb orb-7">Kong</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  ABOUT  ════════════════════════ -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-label">// 01 ABOUT</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-title">Engineer who<br /><span class="gradient-text">ships products.</span></h2>
+          <p>I'm a <strong>Co-Founder and Cloud/AI Engineer</strong> who has co-founded
+            two startups, interned at a US cybersecurity company, and built production systems used by real users.</p>
+          <p>My work spans AI/ML platforms, real-time applications, DevOps automation, and API security. I thrive at the
+            junction where <strong>infrastructure meets product</strong>.</p>
+          <div class="about-stats">
+            <div class="stat reveal">
+              <span class="stat-num" data-target="2">0</span>
+              <span class="stat-label">Startups Co-Founded</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Algo Problems Set</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat-num" data-target="50">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Dev Time Reduction</span>
+            </div>
+            <div class="stat reveal">
+              <span class="stat-num" data-target="98">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Approval Rate</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card-wrap reveal">
+          <div class="about-card" id="about-card">
+            <div class="card-glow"></div>
+            <div class="card-avatar">JK</div>
+            <div class="card-info">
+              <p class="card-name">Jai Kansal</p>
+              <p class="card-role">B.Tech CSE · University of Delhi</p>
+            </div>
+            <div class="card-tags">
+              <span class="ctag">Co-Founder</span>
+              <span class="ctag">Cloud Engineer</span>
+              <span class="ctag">AI Builder</span>
+            </div>
+            <div class="card-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              Delhi, India
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  EXPERIENCE  ════════════════════════ -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-label">// 02 EXPERIENCE</div>
+      <h2 class="section-title reveal">Where I've <span class="gradient-text">worked.</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal" id="exp-manosathi">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-role">Co-Founder & Lead Engineer</h3>
+                <p class="tcard-company">ManoSathi <span class="tcard-url">manosathi.in</span></p>
+              </div>
+              <div class="tcard-meta">
+                <span class="tcard-badge badge-green">Active</span>
+                <span class="tcard-date">2025 – Present</span>
+              </div>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Built and launched an <strong>AI-powered mental wellness platform</strong> using Vertex AI and
+                Firebase, reducing response latency and enabling real-time conversational therapy.</li>
+              <li>Architected scalable backend infrastructure on <strong>Google Cloud</strong>, supporting concurrent
+                user interactions and modular AI workflows.</li>
+              <li>Selected for <strong>IIT Delhi EDC Pre-Incubation</strong> and BECon'26 Startup Clinic; recognized
+                among top 30 teams at AI × MedTech Hackathon.</li>
+              <li>Rapidly prototyped and deployed MVP within weeks using AI-assisted development tools.</li>
+            </ul>
+            <div class="tcard-stack">
+              <span>Vertex AI</span><span>Firebase</span><span>GCP</span><span>Node.js</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="timeline-item reveal" id="exp-cequence">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-role">Software Intern</h3>
+                <p class="tcard-company">Cequence Security <span class="tcard-url"><a href="https://cequence.ai"
+                      target="_blank" rel="noopener">cequence.ai</a></span></p>
+              </div>
+              <div class="tcard-meta">
+                <span class="tcard-badge badge-blue">Internship</span>
+                <span class="tcard-date">Jun 2025 – Feb 2026</span>
+              </div>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Provisioned cloud infrastructure (EC2, VPC, NAT) improving deployment scalability and network
+                isolation.</li>
+              <li>Automated infrastructure setup using <strong>Terraform</strong>, reducing manual config time and
+                ensuring reproducibility.</li>
+              <li>Deployed containerized applications using <strong>Docker</strong> on Linux-based EC2 instances.</li>
+              <li>Configured <strong>Kong API Gateway</strong> with plugins for authentication, rate limiting, and
+                traffic control.</li>
+              <li>Designed multi-user cloud demo architecture for internal testing and client demonstrations.</li>
+            </ul>
+            <div class="tcard-stack">
+              <span>AWS EC2</span><span>Terraform</span><span>Docker</span><span>Kong</span><span>Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" id="exp-vcriate">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-header">
+              <div>
+                <h3 class="tcard-role">Coding Problem Setter</h3>
+                <p class="tcard-company">VCriate</p>
+              </div>
+              <div class="tcard-meta">
+                <span class="tcard-badge badge-purple">Contract</span>
+                <span class="tcard-date">Jun – Sep 2024</span>
+              </div>
+            </div>
+            <ul class="tcard-bullets">
+              <li>Created <strong>30+ algorithmic problems</strong> with optimized solutions across Java, C++, and
+                Python.</li>
+              <li>Improved platform evaluation quality through comprehensive edge-case test coverage.</li>
+              <li>Maintained <strong>98% approval rate</strong> through collaboration with technical reviewers.</li>
+            </ul>
+            <div class="tcard-stack">
+              <span>Java</span><span>C++</span><span>Python</span><span>Algorithms</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  PROJECTS  ════════════════════════ -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-label">// 03 PROJECTS</div>
+      <h2 class="section-title reveal">Things I've <span class="gradient-text">built.</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal featured-card" id="proj-manosathi">
+          <div class="proj-glow proj-glow-teal"></div>
+          <div class="proj-featured-badge">Featured</div>
+          <div class="proj-top">
+            <span class="proj-icon">🧠</span>
+            <div class="proj-links">
+              <a href="https://manosathi.in" target="_blank" rel="noopener" class="proj-link" title="Live site">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="proj-name">ManoSathi</h3>
+          <p class="proj-desc">AI-powered mental wellness platform offering real-time conversational therapy. Selected
+            for IIT Delhi EDC Pre-Incubation and recognized among top 30 teams at AI × MedTech Hackathon.</p>
+          <div class="proj-stack">
+            <span>Vertex AI</span><span>Firebase</span><span>GCP</span><span>Node.js</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal" id="proj-infra">
+          <div class="proj-glow proj-glow-orange"></div>
+          <div class="proj-top">
+            <span class="proj-icon">☁️</span>
+          </div>
+          <h3 class="proj-name">Cloud Demo Architecture</h3>
+          <p class="proj-desc">Multi-user cloud demo environment for Cequence Security. Automated with Terraform,
+            containerized with Docker, running on AWS EC2 with Kong API Gateway for routing and security.</p>
+          <div class="proj-stack">
+            <span>Terraform</span><span>AWS</span><span>Docker</span><span>Kong</span><span>Linux</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  SKILLS  ════════════════════════ -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-label">// 04 SKILLS</div>
+      <h2 class="section-title reveal">My <span class="gradient-text">tech stack.</span></h2>
+
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <div class="skill-group-icon">{ }</div>
+          <h3 class="skill-group-title">Languages</h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sk-js"><span class="pill-dot"></span>JavaScript</div>
+            <div class="skill-pill" id="sk-ts"><span class="pill-dot"></span>TypeScript</div>
+            <div class="skill-pill" id="sk-java"><span class="pill-dot"></span>Java</div>
+            <div class="skill-pill" id="sk-py"><span class="pill-dot"></span>Python</div>
+            <div class="skill-pill" id="sk-c"><span class="pill-dot"></span>C</div>
+            <div class="skill-pill" id="sk-cpp"><span class="pill-dot"></span>C++</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-icon">⚡</div>
+          <h3 class="skill-group-title">Frameworks</h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sk-next"><span class="pill-dot"></span>Next.js</div>
+            <div class="skill-pill" id="sk-react"><span class="pill-dot"></span>React.js</div>
+            <div class="skill-pill" id="sk-node"><span class="pill-dot"></span>Node.js</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-icon">☁</div>
+          <h3 class="skill-group-title">Cloud & DevOps</h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sk-gcp"><span class="pill-dot"></span>GCP / Vertex AI</div>
+            <div class="skill-pill" id="sk-firebase"><span class="pill-dot"></span>Firebase</div>
+            <div class="skill-pill" id="sk-aws"><span class="pill-dot"></span>AWS EC2 / VPC</div>
+            <div class="skill-pill" id="sk-terraform"><span class="pill-dot"></span>Terraform</div>
+            <div class="skill-pill" id="sk-docker"><span class="pill-dot"></span>Docker</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-icon">🔌</div>
+          <h3 class="skill-group-title">Systems & APIs</h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sk-kong"><span class="pill-dot"></span>Kong API Gateway</div>
+            <div class="skill-pill" id="sk-rest"><span class="pill-dot"></span>REST APIs</div>
+            <div class="skill-pill" id="sk-net"><span class="pill-dot"></span>Networking</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <div class="skill-group-icon">🛠</div>
+          <h3 class="skill-group-title">Tools</h3>
+          <div class="skill-pills">
+            <div class="skill-pill" id="sk-git"><span class="pill-dot"></span>Git / GitHub</div>
+            <div class="skill-pill" id="sk-vscode"><span class="pill-dot"></span>VS Code</div>
+            <div class="skill-pill" id="sk-ag"><span class="pill-dot"></span>Antigravity</div>
+            <div class="skill-pill" id="sk-gemini"><span class="pill-dot"></span>Gemini</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  ACHIEVEMENTS  ════════════════════════ -->
+  <section class="section" id="achievements">
+    <div class="container">
+      <div class="section-label">// 05 ACHIEVEMENTS</div>
+      <h2 class="section-title reveal">Recognition & <span class="gradient-text">wins.</span></h2>
+      <div class="achievements-grid">
+
+        <div class="ach-card reveal" id="ach-stratazenith">
+          <div class="ach-icon">🏆</div>
+          <div class="ach-content">
+            <h3>Winner — Stratazenith</h3>
+            <p>Indian Game Theory Society, <strong>IIT Delhi</strong> (2023)</p>
+          </div>
+          <div class="ach-glow"></div>
+        </div>
+
+        <div class="ach-card reveal" id="ach-medtech">
+          <div class="ach-icon">🥇</div>
+          <div class="ach-content">
+            <h3>Top 30 Teams</h3>
+            <p><strong>AI × MedTech Hackathon</strong> with ManoSathi</p>
+          </div>
+          <div class="ach-glow"></div>
+        </div>
+
+        <div class="ach-card reveal" id="ach-iitd">
+          <div class="ach-icon">🚀</div>
+          <div class="ach-content">
+            <h3>IIT Delhi EDC Pre-Incubation</h3>
+            <p>Selected for entrepreneurship development & startup mentorship</p>
+          </div>
+          <div class="ach-glow"></div>
+        </div>
+
+        <div class="ach-card reveal" id="ach-becon">
+          <div class="ach-icon">💡</div>
+          <div class="ach-content">
+            <h3>BECon'26 Startup Clinic</h3>
+            <p>Selected for business excellence conference startup accelerator program</p>
+          </div>
+          <div class="ach-glow"></div>
+        </div>
+
+        <div class="ach-card reveal" id="ach-vcriate">
+          <div class="ach-icon">⭐</div>
+          <div class="ach-content">
+            <h3>98% Approval Rate</h3>
+            <p>Algorithmic problem-setting at <strong>VCriate</strong> — 30+ problems created</p>
+          </div>
+          <div class="ach-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  EDUCATION  ════════════════════════ -->
+  <section class="section edu-section" id="education">
+    <div class="container">
+      <div class="section-label">// 06 EDUCATION</div>
+      <h2 class="section-title reveal">Academic <span class="gradient-text">background.</span></h2>
+      <div class="edu-card reveal" id="edu-du">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-body">
+          <h3>B.Tech in Computer Science & Engineering</h3>
+          <p class="edu-school">Faculty of Technology, University of Delhi</p>
+          <p class="edu-year">Expected Graduation — 2027</p>
+        </div>
+        <div class="edu-badge">CSE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  CONTACT  ════════════════════════ -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">// 07 CONTACT</div>
+      <div class="contact-inner reveal">
+        <h2 class="section-title">Let's <span class="gradient-text">connect.</span></h2>
+        <p class="contact-sub">I'm always open to interesting conversations, collaborations, and new opportunities. Drop
+          me a message!</p>
+        <div class="contact-methods">
+          <a href="mailto:jaikansal85@gmail.com" class="contact-method" id="contact-email">
+            <div class="cm-icon">✉</div>
+            <div class="cm-body">
+              <span class="cm-label">Email</span>
+              <span class="cm-value">jaikansal85@gmail.com</span>
+            </div>
+            <div class="cm-arrow">→</div>
+          </a>
+          <a href="https://linkedin.com/in/jai-kansal-371738297" target="_blank" rel="noopener" class="contact-method"
+            id="contact-linkedin">
+            <div class="cm-icon">in</div>
+            <div class="cm-body">
+              <span class="cm-label">LinkedIn</span>
+              <span class="cm-value">jai-kansal-371738297</span>
+            </div>
+            <div class="cm-arrow">→</div>
+          </a>
+          <a href="tel:+917417198372" class="contact-method" id="contact-phone">
+            <div class="cm-icon">📱</div>
+            <div class="cm-body">
+              <span class="cm-label">Phone</span>
+              <span class="cm-value">+91 7417 198 372</span>
+            </div>
+            <div class="cm-arrow">→</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════  FOOTER  ════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed & built by <strong>Jai Kansal</strong> · <span id="footer-year"></span></p>
+      <p class="footer-sub">Made with creativity & code from Delhi 🇮🇳</p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════  TERMINAL  ════════════════════════ -->
+  <div class="terminal-overlay" id="terminal-overlay">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        </div>
+        <div class="terminal-title">guest@jaikansal: ~</div>
+        <button class="terminal-close" id="terminal-close">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="terminal-line">Welcome to JK-OS v1.0.4. Type 'help' to see available commands.</div>
+        <div class="terminal-input-line">
+          <span class="prompt">guest@jaikansal:~$</span>
+          <input type="text" id="terminal-input" autofocus spellcheck="false" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Noise Overlay -->
+  <div class="noise"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Terminal FAB -->
+  <div class="terminal-fab-container">
+    <div class="terminal-hint">Press ` for terminal</div>
+    <button class="terminal-fab magnetic" id="terminal-fab" title="Open Terminal">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="4 17 10 11 4 5" />
+        <line x1="12" y1="19" x2="20" y2="19" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
